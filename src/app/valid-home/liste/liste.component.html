@@ -1,0 +1,459 @@
+
+
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<!--------------------------------------------------------table2------------------------------------------------------------------->
+<div class="page-content">
+
+
+
+
+
+<div class="row">
+  <div class="col-md-10">
+
+    <div class="clearfix">
+      <div class="pull-right tableTools-container"></div>
+    </div>
+    <div class="table-header">
+     Liste d'attente
+    </div>
+
+    <!-- div.table-responsive -->
+
+    <!-- div.dataTables_borderWrap -->
+    <div>
+      <table  class="table table-striped table-bordered table-hover">
+        <thead>
+        <tr>
+          <th class="center">
+            <label class="pos-rel">
+              <input type="checkbox" class="ace" />
+              <span class="lbl"></span>
+            </label>
+          </th>
+          <th>Numero CIP</th>
+          <th>Collaborateur(s)</th>
+          <th>Matricule(s)</th>
+          <th>Date</th>
+          <th>Description</th>
+          <th>état</th>
+          <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr >
+          <!------------------------->
+
+
+
+        <tr  *ngFor="let u of cips | async">
+          <td class="center" >
+            <label class="pos-rel">
+              <input type="checkbox" class="ace" />
+              <span class="lbl"></span>
+            </label>
+          </td>
+          <td>{{u.numero}}</td>
+          <td>{{u.collaborateurs}}</td>
+          <td>{{u.matricule}}</td>
+          <td>{{u.date}}</td>
+          <td>{{u.description}}</td>
+          <td>{{u.etat}}</td>
+          <td >
+            <div  class="hidden-sm hidden-xs action-buttons">
+              <a class="blue" href="#modal-zoom"   data-toggle="modal"   (click)="go(u.numero,u.collaborateurs,u.matricule,u.date,u.description,u.etat)">
+                <i class="ace-icon fa fa-search-plus bigger-130"></i>
+              </a>
+
+              <!-------------------------------------modal zoom---------------------->
+              <div id="modal-zoom" class="modal">
+                <div class="modal-dialog" >
+
+
+
+                  <div class="modal-body">
+
+                    <div class="container col-xs-12" >
+
+                      <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+                        <fieldset>
+
+                          <!-- Form Name -->
+                          <legend>CIP Numero: {{this.numero}}</legend>
+
+                          <!-- Text input-->
+
+                          <div class="form-group">
+                            <label class="col-md-3 control-label">Collaborateur(s):</label>
+                            <div class="col-md-8 inputGroupContainer">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fa  fa-users"></i></span>
+                                <input  name="collaborateurs" placeholder="" class="form-control"  type="text" [(ngModel)]="collaborateurs"disabled>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Text input-->
+
+                          <div class="form-group">
+                            <label class="col-md-3 control-label">Matricule(s):</label>
+                            <div class="col-md-8 inputGroupContainer">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span>
+                                <input  name="matricule" placeholder="" class="form-control" [(ngModel)]="matricule"  type="text" disabled>
+                              </div>
+                            </div>
+                          </div>
+
+
+                          <div class="form-group">
+                            <label class="col-md-3 control-label">Service(s):</label>
+                            <div class="col-md-8 inputGroupContainer">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-commenting-o"></i></span>
+                                <input  name="service" placeholder="" class="form-control" [(ngModel)]="service" type="text" disabled>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Text input-->
+
+                          <div class="form-group">
+                            <label class="col-md-3 control-label">Nature du gain:</label>
+                            <div class="col-md-8 inputGroupContainer">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-cc"></i></span>
+                                <input  name="natureGain" placeholder="" class="form-control" [(ngModel)]="natureGain" type="text" disabled>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- Text input-->
+
+                          <div class="form-group">
+                            <label class="col-md-3 control-label">Date:</label>
+                            <div class="col-md-8 inputGroupContainer">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                <input  name="date" placeholder="" class="form-control" [(ngModel)]="date" type="text" disabled>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- Text input-->
+
+                          <div class="form-group">
+                            <label class="col-md-3 control-label">Description:</label>
+                            <div class="col-md-8 inputGroupContainer">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-commenting-o"></i></span>
+                                <input  name="description" placeholder="" class="form-control" [(ngModel)]="description" type="text" disabled>
+                              </div>
+                            </div>
+                          </div>
+<div  *ngIf="this.statut == 'controlling'">
+                          <div class="form-group">
+                            <label class="col-md-3 control-label">Valeur du gain:</label>
+                            <div class="col-md-8 inputGroupContainer">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-money"></i></span>
+                                <input  name="gain" placeholder="saisie la valeur du gain" class="form-control" [(ngModel)]="gain" type="text">
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+
+                          <div class="row">
+                            <div class="col-sm-offset-1 col-sm-10">
+
+                              <div class="clearfix">
+                                <div class="pull-right tableTools-container"></div>
+                              </div>
+                              <div class="table-header">
+                              Fait partie de son travail?
+                              </div>
+
+                              <!-- div.table-responsive -->
+
+                              <!-- div.dataTables_borderWrap -->
+                              <div>
+                                <table  class="table table-striped table-bordered table-hover">
+                                  <thead>
+                                  <tr>
+
+                                    <th>Oui</th>
+                                    <th>Non</th>
+
+                                  </tr>
+                                  </thead>
+
+                                  <tbody>
+                                  <tr >
+                                    <!------------------------->
+
+
+
+
+                                  <tr >
+
+
+                                    <td class="center">
+                                    <label class="pos-rel">
+                                      <input name="form-field-radio" type="radio" class="ace" />
+                                      <span class="lbl"></span>
+                                    </label>
+                                  </td>
+                                    <td class="center">
+                                      <label class="pos-rel">
+                                        <input name="form-field-radio" type="radio" class="ace" />
+                                        <span class="lbl"></span>
+                                      </label>
+                                    </td>
+
+
+
+
+
+                                  </tr>
+
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                          </div>
+
+                          <div class="form-group">
+
+                            <div class="row">
+                              <div class="col-sm-offset-1 col-sm-10">
+
+                                <div class="clearfix">
+                                  <div class="pull-right tableTools-container"></div>
+                                </div>
+                                <div class="table-header">
+                                  Gain ou Saving?
+                                </div>
+
+                                <!-- div.table-responsive -->
+
+                                <!-- div.dataTables_borderWrap -->
+                                <div>
+                                  <table  class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+
+                                      <th>Gain</th>
+                                      <th>Saving</th>
+
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr >
+                                      <!------------------------->
+
+
+                                    <tr >
+
+
+                                      <td class="center">
+                                        <label class="pos-rel">
+                                          <input name="form-field-radio" type="radio" class="ace" />
+                                          <span class="lbl"></span>
+                                        </label>
+                                      </td>
+                                      <td class="center">
+                                        <label class="pos-rel">
+                                          <input name="form-field-radio" type="radio" class="ace" />
+                                          <span class="lbl"></span>
+                                        </label>
+                                      </td>
+
+
+
+
+
+                                    </tr>
+
+
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+
+                            <div class="row">
+                              <div class="col-sm-offset-1 col-sm-10">
+
+                                <div class="clearfix">
+                                  <div class="pull-right tableTools-container"></div>
+                                </div>
+                                <div class="table-header">
+                                Généralisable?
+                                </div>
+
+                                <!-- div.table-responsive -->
+
+                                <!-- div.dataTables_borderWrap -->
+                                <div>
+                                  <table  class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+
+                                      <th>Oui</th>
+                                      <th>Non</th>
+
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr >
+                                      <!------------------------->
+
+
+                                    <tr >
+
+
+                                      <td class="center">
+                                        <label class="pos-rel">
+                                          <input name="form-field-radio" type="radio" class="ace" />
+                                          <span class="lbl"></span>
+                                        </label>
+                                      </td>
+                                      <td class="center">
+                                        <label class="pos-rel">
+                                          <input name="form-field-radio" type="radio" class="ace" />
+                                          <span class="lbl"></span>
+                                        </label>
+                                      </td>
+
+
+
+
+
+                                    </tr>
+
+
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+
+                            <div class="row">
+                              <div class="col-sm-offset-1 col-sm-10">
+
+                                <div class="clearfix">
+                                  <div class="pull-right tableTools-container"></div>
+                                </div>
+                                <div class="table-header">
+                                Nouvelle Idée?
+                                </div>
+
+                                <!-- div.table-responsive -->
+
+                                <!-- div.dataTables_borderWrap -->
+                                <div>
+                                  <table  class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+
+                                      <th>Oui</th>
+                                      <th>Non</th>
+
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr >
+                                      <!------------------------->
+
+
+                                    <tr >
+
+
+                                      <td class="center">
+                                        <label class="pos-rel">
+                                          <input name="form-field-radio" type="radio" class="ace" />
+                                          <span class="lbl"></span>
+                                        </label>
+                                      </td>
+                                      <td class="center">
+                                        <label class="pos-rel">
+                                          <input name="form-field-radio" type="radio" class="ace" />
+                                          <span class="lbl"></span>
+                                        </label>
+                                      </td>
+
+
+
+
+
+                                    </tr>
+
+
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+</div>
+
+                          <div class="form-group">
+                            <button class="btn btn-primary"> commenter</button>
+                            <button class="btn btn-success" (click)="validationcontrolling(gain)"> Accepté</button>
+
+                            <button class="btn btn-danger">rejecté</button>
+
+                          </div>
+
+
+
+                        </fieldset>
+                      </form>
+                    </div>
+
+
+                  </div>
+
+
+                </div>
+              </div>
+
+
+
+              <!--------------------------------end modal zoom----------------->
+
+              <a   class="green"  (click)="edit(u.numero, u.description ,u.natureGain)">
+                <i class="ace-icon fa fa-check bigger-130"></i>
+              </a>
+
+              <a class="red"  href="#modal-sup"  data-toggle="modal">
+                <i class="ace-icon fa fa-close bigger-130"></i>
+              </a>
+              <a class="blue"  href="#modal-sup"  data-toggle="modal">
+                <i class="ace-icon fa fa-commenting-o bigger-130"></i>
+              </a>
+            </div></td></tr>
+
+
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!--------------------------------------------------------end table2------------------------------------------------------------------->
+
+
+</div>

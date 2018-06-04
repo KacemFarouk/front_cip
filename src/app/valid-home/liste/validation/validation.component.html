@@ -1,0 +1,224 @@
+
+
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+<!--<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css'>-->
+<!--<link rel='stylesheet prefetch' href='http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css'>-->
+
+
+
+<div>
+  <app-header></app-header>
+</div>
+<br><br><br><br>
+<div>
+  <!-- Contact section -->
+  <section id="contact" >
+    <div class="container">
+      <div class="row">
+
+        <div class="sec-title text-center wow animated fadeInDown">
+
+
+        </div>
+
+
+        <div class="col-md-7 contact-form wow animated fadeInLeft">
+          <div class="container">
+
+            <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+              <fieldset>
+
+
+
+                <!-- Text input-->
+
+                <div class="form-group">
+                  <label class="col-md-4 control-label">Matricule:</label>
+                  <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                      <input  name="matricule" placeholder="Matricule" class="form-control"  type="text" [(ngModel)]="matricule"  (change)="getAllUsers(matricule)">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Text input-->
+
+                <div class="form-group">
+                  <label class="col-md-4 control-label" >Nom & Prénom</label>
+                  <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+
+
+
+                      <input name="nom" placeholder="Nom & Prénom" class="form-control" data-role="tagsinput" type="text" [(ngModel)]="nom">
+
+                      <div *ngIf="">
+                        <a href="#" class="btn btn-danger btn-xs">{{this.nom}}<span class="glyphicon glyphicon-remove"></span></a>
+                      </div>
+
+                      <div *ngIf="">
+                        <a href="#" class="btn btn-danger btn-xs">{{this.nom}}<span class="glyphicon glyphicon-remove"></span></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Select Basic -->
+
+                <div class="form-group">
+                  <label class="col-md-4 control-label">Service:</label>
+                  <div class="col-md-4 selectContainer">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                      <select name="state" class="form-control selectpicker" >
+
+                        <option value=" " >selectionner votre service:</option>
+                        <option> HR</option>
+                        <option>PPE – CC</option>
+                        <option>Direction Quality</option>
+                        <option>Supply Chain</option>
+                        <option>Audi</option>
+                        <option> BMW</option>
+                        <option>MB</option>
+                        <option>IM</option>
+                        <option>LPS plus</option>
+                        <option>MMC</option>
+                        <option>Managing Director</option>
+                        <option> VW</option>
+                        <option>AC (Asian Customer)</option>
+                        <option>Sys App LTN1</option>
+                        <option>Commercial Managing Direction</option>
+                        <option>Shared Service Hub</option>
+                        <option>General Administration</option>
+                        <option>KSK Project MEB</option>
+                        <option>Autarks MEB</option>
+
+
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <!-- Select Basic -->
+
+                <div class="form-group">
+                  <label class="col-md-4 control-label">Nature du gain:</label>
+                  <div class="col-md-4 selectContainer">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                      <select name="state" class="form-control selectpicker" >
+                        <option *ngFor="let g of gains">{{g.natureGain}}</option>
+
+
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+
+                <!-- Text area -->
+
+                <div class="form-group">
+                  <label class="col-md-4 control-label">Description:</label>
+                  <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                      <textarea class="form-control" name="comment" placeholder="Description"></textarea>
+                    </div>
+                  </div>
+                </div>
+
+<!----------------------------------------------------------------------------------->
+                <div class="form-group">
+                  <label class="col-md-4 control-label">Fait partie de son travail?</label>
+                  <div class="col-md-4">
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="hosting" value="yes" /> Oui
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="hosting" value="no" /> Non
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-md-4 control-label">Gain ou Saving?</label>
+                  <div class="col-md-4">
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="hosting" value="yes" /> Oui
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="hosting" value="no" /> Non
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-md-4 control-label">Géneralisable?</label>
+                  <div class="col-md-4">
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="hosting" value="yes" /> Oui
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="hosting" value="no" /> Non
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="form-group">
+                  <label class="col-md-4 control-label">Nouvelle Idée?</label>
+                  <div class="col-md-4">
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="hosting" value="yes" /> Oui
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="hosting" value="no" /> Non
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <!-- Button -->
+                <div class="form-group">
+                  <label class="col-md-4 control-label"></label>
+                  <div class="col-md-4">
+                    <button type="submit" class="btn btn-danger" >rejecter <span class="glyphicon glyphicon-remove"></span></button>
+                    <button type="submit" class="btn btn-success" >accepter <span class="glyphicon glyphicon-ok"></span></button>
+                    <button type="submit" class="btn btn-warning" >commenter</button>
+                  </div>
+
+                </div>
+
+              </fieldset>
+            </form>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </section>
+  <!-- end Contact section -->
+</div>
+
+
+
+
+

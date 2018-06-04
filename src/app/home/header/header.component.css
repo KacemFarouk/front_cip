@@ -1,0 +1,22 @@
+
+#n {
+  -webkit-transition: all 0.8s ease 0s;
+  -moz-transition: all 0.8s ease 0s;
+  -ms-transition: all 0.8s ease 0s;
+  -o-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
+
+  background-color: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  padding: 5px 0;
+}
+.navbar-form{
+  background-color: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+.b{
+  color:  #003D89;
+}
+.x{width: 125px}
+#l{ width: 125px;}
+

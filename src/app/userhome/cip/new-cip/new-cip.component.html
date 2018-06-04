@@ -1,0 +1,868 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+
+
+<!--&lt;!&ndash;-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;form2&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+<!--<div class="container">-->
+
+  <!--<div class="well form-horizontal"  id="contact_form">-->
+    <!--<fieldset>-->
+
+      <!--&lt;!&ndash; Form Name &ndash;&gt;-->
+      <!--<legend>Ajouter CIP</legend>-->
+
+      <!--<div class="form-group">-->
+        <!--<label class="col-md-4 control-label">Matricule:</label>-->
+        <!--<div class="col-md-4 inputGroupContainer">-->
+          <!--<div class="input-group">-->
+            <!--<span class="input-group-addon"><i class="fa fa-user-plus"></i></span>-->
+            <!--<input name="matricule" placeholder="Matricule.."   type="text" [(ngModel)]="matricule"  (change)="getAllUsers(matricule)"   class="form-control"  >-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+
+      <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
+        <!--&lt;!&ndash;<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">Tag input</label>&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<div class="col-sm-9">&ndash;&gt;-->
+          <!--&lt;!&ndash;<div class="inline">&ndash;&gt;-->
+            <!--&lt;!&ndash;<input type="text" name="tags" id="form-field-tags" value="Tag Input Control" placeholder="Enter tags ..." />&ndash;&gt;-->
+          <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+      <!--&lt;!&ndash;<input  name="matricule" placeholder="Matricule.."   type="text" [(ngModel)]="matricule"  (change)="getAllUsers(matricule)" required>&ndash;&gt;-->
+      <!--<div class="form-group">-->
+
+        <!--<div >-->
+          <!--<div class="col-sm-offset-1 col-sm-10">-->
+
+            <!--<div>-->
+              <!--<div  >-->
+
+                <!--<label>Matricule:</label>-->
+                <!--<label>Nom et Prénom:</label>-->
+                <!--<label>Service</label>-->
+
+
+
+
+
+                <!--&lt;!&ndash;-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+
+
+                <!--<div *ngFor="let u of users1;let i=index"  class="wow animated bounceInLeft">-->
+
+                  <!--<div>-->
+                    <!--<button class="btn btn-primary " [(ngModel)]="this.users1[i].matricule"  name="{{this.users1[i].matricule}}" >{{this.users1[i].matricule}}</button>-->
+
+                  <!--</div>-->
+                  <!--<div  >-->
+                    <!--<button   [(ngModel)]="this.users1[i].nom+' '+this.users1[i].prenom"  name="{{this.users1[i].nom}}" >{{this.users1[i].nom+' '+this.users1[i].prenom}}</button>-->
+                  <!--</div>-->
+                  <!--<div   >-->
+                    <!--<button  name="{{this.users1[i].service}}"[(ngModel)]="this.users11[i]">{{this.users11[i]}}</button>-->
+                  <!--</div>-->
+
+                  <!--&lt;!&ndash;<td>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<input  placeholder="contribution.." class="form-control"  type="text">&ndash;&gt;-->
+
+                  <!--&lt;!&ndash;</td>&ndash;&gt;-->
+
+                  <!--<div>-->
+                    <!--<div  class="hidden-sm hidden-xs action-buttons">-->
+
+                      <!--<a class="red" href="#" >-->
+                        <!--<i class="ace-icon fa fa-trash bigger-130"></i>-->
+                      <!--</a>-->
+                    <!--</div>-->
+                  <!--</div>-->
+
+
+
+
+
+                <!--</div>-->
+
+
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+
+      <!--<div class="form-group">-->
+
+        <!--<div class="row">-->
+          <!--<div class="col-sm-offset-1 col-sm-10">-->
+
+            <!--<div class="clearfix">-->
+              <!--<div class="pull-right tableTools-container"></div>-->
+            <!--</div>-->
+
+
+            <!--&lt;!&ndash; div.table-responsive &ndash;&gt;-->
+
+            <!--&lt;!&ndash; div.dataTables_borderWrap &ndash;&gt;-->
+            <!--<div>-->
+              <!--<table  class="table table-striped table-bordered table-hover">-->
+                <!--<thead>-->
+                <!--<tr>-->
+                  <!--<th>Matricule:</th>-->
+                  <!--<th>Nom et Prénom:</th>-->
+                  <!--<th>Service</th>-->
+                  <!--&lt;!&ndash;<th>Contribution</th>&ndash;&gt;-->
+                  <!--<th></th>-->
+
+                <!--</tr>-->
+                <!--</thead>-->
+
+                <!--<tbody>-->
+
+                  <!--&lt;!&ndash;-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+
+
+                <!--<tr *ngFor="let u of users1;let i=index" >-->
+
+                <!--<td>-->
+                  <!--<input  placeholder="Matricule" class="form-control"  type="text" [(ngModel)]="this.users1[i].matricule"  name="{{this.users1[i].matricule}}" disabled>-->
+
+                <!--</td>-->
+                  <!--<td   class="center">-->
+                    <!--<input  placeholder="Collaborateurs.." class="form-control"  type="text" [(ngModel)]="this.users1[i].nom+' '+this.users1[i].prenom"  name="{{this.users1[i].nom}}" disabled>-->
+                  <!--</td>-->
+                  <!--<td   class="center">-->
+                    <!--<input  name="{{this.users1[i].service}}" placeholder="Service.." class="form-control"  type="text" [(ngModel)]="this.users11[i]" disabled>-->
+                  <!--</td>-->
+
+                  <!--&lt;!&ndash;<td>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<input  placeholder="contribution.." class="form-control"  type="text">&ndash;&gt;-->
+
+                  <!--&lt;!&ndash;</td>&ndash;&gt;-->
+
+                  <!--<td >-->
+                    <!--<div  class="hidden-sm hidden-xs action-buttons">-->
+
+                      <!--<a class="red" href="#" >-->
+                        <!--<i class="ace-icon fa fa-trash bigger-130"></i>-->
+                      <!--</a>-->
+                    <!--</div>-->
+                  <!--</td>-->
+
+
+
+
+
+                <!--</tr>-->
+
+
+
+                <!--</tbody>-->
+              <!--</table>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+
+
+
+      <!--<div class="col-xs-12">-->
+        <!--<label class="col-md-3"></label>-->
+        <!--<label class="col-md-7">Nature du gain:</label>-->
+
+      <!--</div>-->
+<!--<div class="col-xs-12">-->
+      <!--<div class="form-group ">-->
+        <!--<label class="col-md-3 "></label>-->
+        <!--<div class="col-md-6 selectContainer">-->
+          <!--<div class="input-group">-->
+            <!--<span class="input-group-addon"><i class="glyphicon glyphicon-list"></i> </span>-->
+            <!--<select name="state" class="form-control selectpicker" [(ngModel)]="nature" name="nature" (change)="getidnature(nature)">-->
+              <!--<option *ngFor="let g of gains" [ngValue]="g" >{{g.natureGain}}</option>-->
+            <!--</select>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+<!--</div>-->
+      <!--<div class="col-xs-12">-->
+        <!--<label class="col-md-3"></label>-->
+        <!--<label class="col-md-7">Description:</label>-->
+
+      <!--</div>-->
+      <!--<div class="col-xs-12">-->
+        <!--<label class="col-md-3"></label>-->
+      <!--<div class="input-field col-md-7">-->
+        <!--<textarea [(ngModel)]="description" name="description" class="form-control" placeholder="Description..."></textarea>-->
+      <!--</div>-->
+      <!--</div>-->
+
+      <!--<div class="col-xs-12">-->
+        <!--<label class="col-md-3"></label>-->
+        <!--<label class="col-md-7">joindre des fichiers</label>-->
+
+      <!--</div>-->
+      <!--<div class="col-xs-12">-->
+        <!--<label class="col-md-3"></label>-->
+  <!--<div class="col-md-7">-->
+          <!--<input type="file" />-->
+        <!--</div>-->
+      <!--</div>-->
+
+
+      <!--&lt;!&ndash; Success message &ndash;&gt;-->
+      <!--&lt;!&ndash; Button &ndash;&gt;-->
+      <!--<div class="form-group">-->
+        <!--<label class="col-md-4 control-label"></label>-->
+
+        <!--<div class="col-sm-offset-8 col-sm-4">-->
+          <!--<button  class="btn" href="#modal-form-annulation" data-toggle="modal">annuler <span class="glyphicon glyphicon-remove"></span></button>-->
+          <!--<button type="submit" class="btn btn-primary" href="#modal-form" data-toggle="modal"(click)="addcip(description, this.idnature ) ">envoyer <span class="glyphicon glyphicon-send"></span></button>-->
+          <!--<button type="submit" class="btn btn-warning" href="#modal-wizard" data-toggle="modal"> essayer un test <span class="fa fa fa-toggle-on"></span></button>-->
+
+          <!--<br>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</fieldset></div></div>-->
+
+
+
+
+
+<!--&lt;!&ndash;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;end form2&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+<!------------------------------------modal test-------------------------------->
+
+<div id="modal-wizard" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div id="modal-wizard-container">
+        <div class="modal-header">
+          <ul class="steps">
+            <li data-step="1" class="active">
+              <span class="step">1</span>
+            </li>
+
+            <li data-step="2">
+              <span class="step">2</span>
+            </li>
+
+            <li data-step="3">
+              <span class="step">3</span>
+            </li>
+
+            <li data-step="4">
+              <span class="step">4</span>
+            </li>
+            <li data-step="5" >
+              <span class="step">5</span>
+            </li>
+            <li data-step="6">
+              <span class="step">6</span>
+            </li>
+          </ul>
+        </div>
+
+
+        <div class="modal-body step-content">
+          <div class="step-pane active" data-step="1">
+            <div class="center">
+              <input  name="gain" placeholder="Gain approximative .."  [(ngModel)]="gain" type="text">
+
+            </div>
+          </div>
+
+          <div class="step-pane" data-step="2">
+            <div class="center">
+              <div class="form-group">
+
+                <div class="row">
+                  <div class="col-sm-offset-1 col-sm-10">
+
+                    <div class="clearfix">
+                      <div class="pull-right tableTools-container"></div>
+                    </div>
+                    <div class="table-header">
+                      Fait partie de son travail?
+                    </div>
+
+                    <!-- div.table-responsive -->
+
+                    <!-- div.dataTables_borderWrap -->
+                    <div>
+                      <table  class="table table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+
+                          <th>Oui</th>
+                          <th>Non</th>
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+
+                          <!------------------------->
+
+                        <tr >
+
+
+                          <td class="center">
+                            <label class="pos-rel">
+                              <input name="form-field-radio" type="radio" class="ace" (change)="choixoui(gain)"/>
+                              <span class="lbl"></span>
+                            </label>
+                          </td>
+                          <td class="center">
+                            <label class="pos-rel">
+                              <input name="form-field-radio" type="radio" class="ace" (change)="choixnon(gain)" />
+                              <span class="lbl"></span>
+                            </label>
+                          </td>
+
+
+
+
+
+                        </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="step-pane" data-step="3">
+            <div class="center">
+              <div class="form-group">
+
+                <div class="row">
+                  <div class="col-sm-offset-1 col-sm-10">
+
+                    <div class="clearfix">
+                      <div class="pull-right tableTools-container"></div>
+                    </div>
+                    <div class="table-header">
+                      Gain ou Saving?
+                    </div>
+
+                    <!-- div.table-responsive -->
+
+                    <!-- div.dataTables_borderWrap -->
+                    <div>
+                      <table  class="table table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+
+                          <th>Gain</th>
+                          <th>Saving</th>
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+
+                          <!------------------------->
+
+                          <tr >
+
+
+                            <td class="center">
+                              <label class="pos-rel">
+                                <input name="form-field-radio" type="radio" class="ace"  (change)="choixgain(gain)" />
+                                <span class="lbl"></span>
+                              </label>
+                            </td>
+                            <td class="center">
+                              <label class="pos-rel">
+                                <input name="form-field-radio" type="radio" class="ace" (change)="choixsaving(gain)" />
+                                <span class="lbl"></span>
+                              </label>
+                            </td>
+
+
+
+
+
+                          </tr>
+
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="step-pane" data-step="4">
+            <div class="center">
+              <div class="form-group">
+
+                <div class="row">
+                  <div class="col-sm-offset-1 col-sm-10">
+
+                    <div class="clearfix">
+                      <div class="pull-right tableTools-container"></div>
+                    </div>
+                    <div class="table-header">
+                      Généralisable?
+                    </div>
+
+                    <!-- div.table-responsive -->
+
+                    <!-- div.dataTables_borderWrap -->
+                    <div>
+                      <table  class="table table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+
+                          <th>Oui</th>
+                          <th>Non</th>
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+
+                          <!------------------------->
+
+
+                          <tr >
+
+
+                            <td class="center">
+                              <label class="pos-rel">
+                                <input name="form-field-radio" type="radio" class="ace" (change)="choixoui3(gain)" />
+                                <span class="lbl"></span>
+                              </label>
+                            </td>
+                            <td class="center">
+                              <label class="pos-rel">
+                                <input name="form-field-radio" type="radio" class="ace" (change)="choixnon3(gain)"/>
+                                <span class="lbl"></span>
+                              </label>
+                            </td>
+
+
+
+
+
+                          </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div class="step-pane" data-step="5">
+            <div class="center">
+              <div class="form-group">
+
+                <div class="row">
+                  <div class="col-sm-offset-1 col-sm-10">
+
+                    <div class="clearfix">
+                      <div class="pull-right tableTools-container"></div>
+                    </div>
+                    <div class="table-header">
+                      Nouvelle Idée?
+                    </div>
+
+                    <!-- div.table-responsive -->
+
+                    <!-- div.dataTables_borderWrap -->
+                    <div>
+                      <table  class="table table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+
+                          <th>Oui</th>
+                          <th>Non</th>
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+
+                          <!------------------------->
+
+
+
+                          <tr >
+
+
+                            <td class="center">
+                              <label class="pos-rel">
+                                <input name="form-field-radio" type="radio" class="ace" (change)="choixoui4(gain)" />
+                                <span class="lbl"></span>
+                              </label>
+                            </td>
+                            <td class="center">
+                              <label class="pos-rel">
+                                <input name="form-field-radio" type="radio" class="ace" (change)="choixnon4(gain)" />
+                                <span class="lbl"></span>
+                              </label>
+                            </td>
+
+
+
+
+
+                          </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="step-pane " data-step="6">
+            <div class="center">
+              <p>points: {{this.points}}</p>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="modal-footer wizard-actions">
+        <button class="btn btn-sm btn-prev">
+          <i class="ace-icon fa fa-arrow-left"></i>
+
+        </button>
+
+        <button   class="btn btn-success btn-sm btn-next" data-last="Finish"  >
+
+          <i class="ace-icon fa fa-arrow-right icon-on-right"></i>
+        </button>
+
+        <button class="btn btn-danger btn-sm pull-left" data-dismiss="modal">
+          <i class="ace-icon fa fa-times"></i>
+          Annuler
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--------------------------------modal------------------------->
+<div id="modal-points" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="blue bigger">Mes Points</h4>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="alert alert-block alert-success">
+
+
+          <p>
+            <strong>
+              <i class="ace-icon fa fa-check"></i>
+              Vous avez 100 points
+            </strong>
+          </p>
+
+          <p>
+
+          </p>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-sm btn-success" routerLink="/userhome/cip/cadeaux">Convertir mes points</button>
+        <button class="btn btn-sm" routerLink="/userhome/cip" >quitter</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-----------------------------end modal------------------------>
+
+
+<!--------------------------------modal annulation------------------------->
+<div id="modal-form-annulation" class="modal">
+  <div class="modal-dialog" >
+    <div class="modal-content">
+      <div class="modal-header" >
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="blue bigger">Vous n'avez pas déposé votre CIP.</h4>
+      </div>
+
+      <div class="modal-body">
+        <div class="row">
+
+
+          <h4>Voulez-vous vraiment fermer cette fenêtre ?</h4>
+
+          <button class="btn ">annuler</button>
+          <button class="btn btn-primary">ok</button>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+<!-----------------------------end modal------------------------>
+<!-------------------modal ------------------------->
+<div id="modal-form" class="modal">
+  <div class="modal-dialog" >
+    <div class="modal-content">
+      <div class="modal-header" >
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="blue bigger">Félicitation</h4>
+      </div>
+
+      <div class="modal-body">
+        <div class="row">
+
+
+          <h4>Votre CIP a eté déposé avec succès</h4>
+
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+<!-----------------------------end modal------------------------>
+<!--------------------------------------------------------------------------------------------------------------------------------------->
+
+<!--<div class="page-container">-->
+
+
+  <!--&lt;!&ndash; MAIN CONTENT&ndash;&gt;-->
+  <!--<div class="main-content">-->
+    <!--<div class="section__content section__content&#45;&#45;p30">-->
+      <!--<div class="container-fluid">-->
+
+
+<!--<div class="col-lg-12">-->
+  <!--<div class="card">-->
+    <!--<div class="card-header">-->
+      <!--<strong>Ajouter</strong>CIP-->
+    <!--</div>-->
+    <!--<div class="card-body card-block">-->
+      <!--<form action="" method="post" enctype="multipart/form-data" class="form-horizontal">-->
+
+        <!--<div class="row form-group">-->
+          <!--<div class="col-md-3 offset-md-3">-->
+            <!--<div class="input-group">-->
+              <!--<div class="input-group-btn">-->
+                <!--<button class="btn btn-primary">-->
+                  <!--<i class="fa fa-user-plus"></i>-->
+                <!--</button>-->
+              <!--</div>-->
+              <!--<input  name="matricule" placeholder="Matricule.." class="form-control" [(ngModel)]="matricule"  (change)="getAllUsers(matricule)" >-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <!--&lt;!&ndash; TOP CAMPAIGN&ndash;&gt;-->
+        <!--<div class="row form-group">-->
+          <!--<div class="col col-md-3">-->
+            <!--<label class=" form-control-label">Collaborateur(s):</label>-->
+          <!--</div>-->
+
+          <!--<div class="col-md-9">-->
+            <!--<div class="table-responsive">-->
+              <!--<table class="table table-top-campaign">-->
+
+              <!--<thead>-->
+              <!--<tr>-->
+                <!--<th>Matricule:</th>-->
+                <!--<th>Nom et Prénom:</th>-->
+                <!--<th>Service</th>-->
+
+                <!--<th></th>-->
+
+              <!--</tr>-->
+              <!--</thead>-->
+
+              <!--<tbody>-->
+
+              <!--&lt;!&ndash;-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+
+
+              <!--<tr *ngFor="let u of users1;let i=index" >-->
+
+                <!--<td >-->
+                  <!--<label class=" form-control-label" [(ngModel)]="this.users1[i].matricule"  name="{{this.users1[i].matricule}}">{{this.users1[i].matricule}}</label>-->
+             <!--</td>-->
+                <!--<td   class="center">-->
+                  <!--<label class=" form-control-label" [(ngModel)]="this.users1[i].nom+' '+this.users1[i].prenom"  name="{{this.users1[i].nom}}">{{this.users1[i].nom}}</label>-->
+                <!--</td>-->
+                <!--<td   class="center">-->
+
+                  <!--<label class=" form-control-label" [(ngModel)]="this.users11[i]" name="{{this.users1[i].service}}">{{this.users11[i]}}</label>-->
+
+                <!--</td>-->
+
+
+                <!--<td >-->
+                  <!--<div  class="hidden-sm hidden-xs action-buttons">-->
+
+                    <!--<a class="red" href="#" >-->
+                      <!--<i class="ace-icon fa fa-trash bigger-130"></i>-->
+                    <!--</a>-->
+                  <!--</div>-->
+                <!--</td>-->
+
+
+
+
+
+              <!--</tr>-->
+
+
+
+              <!--</tbody>-->
+            <!--</table>-->
+          <!--</div>-->
+          <!--</div>-->
+
+        <!--</div>-->
+        <!--&lt;!&ndash;  END TOP CAMPAIGN&ndash;&gt;-->
+
+
+        <!--<div class="row form-group">-->
+          <!--<div class="col col-md-3">-->
+            <!--<label  class=" form-control-label">Nature du gain:</label>-->
+          <!--</div>-->
+          <!--<div class="col-12 col-md-9">-->
+            <!--<select  class="form-control selectpicker" [(ngModel)]="nature" name="nature" (change)="getidnature(nature)">-->
+            <!--<option *ngFor="let g of gains" [ngValue]="g" >{{g.natureGain}}</option>-->
+            <!--</select>-->
+
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row form-group">-->
+          <!--<div class="col col-md-3">-->
+            <!--<label for="textarea-input" class=" form-control-label">Description:</label>-->
+          <!--</div>-->
+          <!--<div class="col-12 col-md-9">-->
+            <!--<textarea [(ngModel)]="description" name="description"  id="textarea-input" rows="9" placeholder="Description..." class="form-control"></textarea>-->
+          <!--</div>-->
+        <!--</div>-->
+
+
+      <!--</form>-->
+    <!--</div>-->
+    <!--<div class="card-footer">-->
+      <!--<button  class="btn" href="#modal-form-annulation" data-toggle="modal">annuler <span class="glyphicon glyphicon-remove"></span></button>-->
+      <!--<button type="submit" class="btn btn-primary" href="#modal-form" data-toggle="modal"(click)="addcip(description, this.idnature ) ">envoyer <span class="glyphicon glyphicon-send"></span></button>-->
+      <!--<button type="submit" class="btn btn-warning" href="#modal-wizard" data-toggle="modal"> essayer un test <span class="fa fa fa-toggle-on"></span></button>-->
+
+
+    <!--</div>-->
+  <!--</div>-->
+
+<!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+
+<div class="page-content">
+<div class="row">
+  <div class="col-md-10">
+    <div class="content-box-large">
+      <div class="panel-heading">
+        <div class="panel-title">Ajouter CIP</div>
+
+
+      </div>
+      <div class="panel-body">
+        <form class="form-horizontal" role="form">
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Matricule:</label>
+
+            <div class="input-group col-sm-2">
+              <input type="text" class="form-control" name="matricule" [(ngModel)]="matricule"  (change)="getAllUsers(matricule)" >
+              <span class="input-group-addon"><i class="fa fa-plus"></i></span>
+            </div>
+
+
+          </div>
+
+          <div class="col-sm-12">
+            <label  class="col-sm-2 control-label">Collaborateur(s):</label>
+
+            <div class="col-sm-10">
+            <table id="user" class="table table-bordered table-striped " style="clear: both">
+              <tbody>
+
+              <tr *ngFor="let u of users1;let i=index" >
+
+                <td width="30%"> <label class=" form-control-label" [(ngModel)]="this.users1[i].matricule"  name="{{this.users1[i].matricule}}">Matricule: {{this.users1[i].matricule}}</label>
+                </td>
+                <td width="40%">  <label class=" form-control-label" [(ngModel)]="this.users1[i].nom+' '+this.users1[i].prenom"  name="{{this.users1[i].nom}}">Nom & Prénom: {{this.users1[i].nom+' '+this.users1[i].prenom}}</label>
+                </td>
+                <td width="30%"> <label class=" form-control-label" [(ngModel)]="this.users11[i]" name="{{this.users1[i].service}}">Service: {{this.users11[i]}}</label>
+                </td>
+
+              </tr>
+
+              </tbody>
+            </table>
+</div>
+          </div>
+
+
+<div class="col-sm-12">
+          <div class="form-group">
+            <label class="control-label col-md-2">Nature du gain:</label>
+            <div class="col-md-10">
+              <select class="form-control input-sm" [(ngModel)]="nature" name="nature" (change)="getidnature(nature)">
+                <option *ngFor="let g of gains" [ngValue]="g" >{{g.natureGain}}</option>
+
+              </select>
+            </div>
+          </div>
+</div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Description:</label>
+            <div class="col-sm-10">
+              <textarea [(ngModel)]="description" name="description" class="form-control" placeholder="Textarea" rows="9"></textarea>
+            </div>
+          </div>
+
+
+        </form>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button  class="btn" href="#modal-form-annulation" data-toggle="modal">annuler <span class="glyphicon glyphicon-remove"></span></button>
+            <button type="submit" class="btn btn-primary" href="#modal-form" data-toggle="modal"(click)="addcip(description, this.idnature ) ">envoyer <span class="glyphicon glyphicon-send"></span></button>
+            <button type="submit" class="btn btn-warning" href="#modal-wizard" data-toggle="modal"> essayer un test <span class="fa fa fa-toggle-on"></span></button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,207 @@
+<app-header></app-header>
+
+<button class="btn btn-primary fa fa-user-plus col-sm-1 "href="#modal-form" data-toggle="modal">
+</button>
+<!--------------------------------modal------------------------->
+<div id="modal-form" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="blue bigger">ajouter un utulisateur</h4>
+      </div>
+
+      <div class="modal-body">
+        <div class="row">
+          <input  name="nom" placeholder="Nom .." class="form-control" data-role="tagsinput btn-group no-margin"   type="text" [(ngModel)]="nom">
+<hr/>
+          <input  name="prenom" placeholder="Prénom .." class="form-control" data-role="tagsinput btn-group no-margin"   type="text" [(ngModel)]="prenom" >
+<hr/>
+          <select name="service" class="form-control selectpicker"  [(ngModel)]="service">
+            <option *ngFor="let g of departements">{{g.serviceName}}</option></select>
+<hr/>
+
+          <input  name="email" placeholder="email .." class="form-control" data-role="tagsinput btn-group no-margin"   type="text" [(ngModel)]="email" >
+<hr/>
+          <select name="role" class="form-control selectpicker"  [(ngModel)]="role">
+            <option>Admin</option>
+            <option>Validateur</option>
+            <option>user</option>
+           </select>
+
+
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-sm" data-dismiss="modal">
+          <i class="ace-icon fa fa-times"></i>
+         Annuler
+        </button>
+
+        <button class="btn btn-sm btn-primary">
+          <i class="ace-icon fa fa-check"></i>
+          Ajouter
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-----------------------------end modal------------------------>
+
+<!--------------------------------------------------------table2------------------------------------------------------------------->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10">
+
+    <div class="clearfix">
+      <div class="pull-right tableTools-container"></div>
+    </div>
+    <div class="table-header">
+      Liste des employées
+    </div>
+
+    <!-- div.table-responsive -->
+
+    <!-- div.dataTables_borderWrap -->
+    <div>
+      <table id="dynamic-table" class="table table-striped table-bordered table-hover">
+        <thead>
+        <tr>
+          <!--<th class="center">-->
+            <!--<label class="pos-rel">-->
+              <!--<input type="checkbox" class="ace" />-->
+              <!--<span class="lbl"></span>-->
+            <!--</label>-->
+          <!--</th>-->
+          <th>Matricule</th>
+          <th>Nom</th>
+          <th>Prénom</th>
+
+          <th>Service</th>
+
+          <th class="hidden-480">Role</th>
+
+          <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <tr >
+          <!------------------------->
+          <!--<td class="center" *ngIf="test">-->
+            <!--<label class="pos-rel">-->
+              <!--<input type="checkbox" class="ace" />-->
+              <!--<span class="lbl"></span>-->
+            <!--</label>-->
+          <!--</td>-->
+
+          <td *ngIf="test">
+            <input type="text" [(ngModel)]="matricule " disabled="disabled">
+          </td>
+
+          <td *ngIf="test"><input type="text" [(ngModel)]="nom  "></td>
+          <td *ngIf="test"><input type="text" [(ngModel)]="prenom"></td>
+          <td *ngIf="test"> <select name="service" class="form-control selectpicker"  [(ngModel)]="service">
+            <option *ngFor="let g of departements">{{g.serviceName}}</option>
+
+
+          </select></td>
+
+          <td *ngIf="test"> <select name="role" class="form-control selectpicker"  [(ngModel)]="role">
+            <option>Admin</option>
+            <option>Validateur</option>
+            <option>user</option>
+
+
+          </select></td>
+
+          <td *ngIf="test">
+
+            <a  class='btn btn-success btn-xs' ><span class="	fa fa-check" *ngIf="test"
+                                                      (click)="update(matricule ,nom , prenom ,service,email,role)"></span></a></td>
+
+        </tr>
+        <tr *ngFor="let u of users , let i = index">
+          <!---------------------->
+          <!--<td class="center" >-->
+            <!--<label class="pos-rel">-->
+              <!--<input type="checkbox" class="ace" />-->
+              <!--<span class="lbl"></span>-->
+            <!--</label>-->
+          <!--</td>-->
+
+          <td >
+            {{u.matricule}}
+          </td>
+
+          <td >{{u.nom}}</td>
+          <td >{{u.prenom}}</td>
+          <td >{{this.nomservice[i]}}</td>
+
+          <td  *ngIf="u.role == 'admin' "     class="hidden-480" >
+            <span class="label label-sm label-success">{{u.role}}</span>
+          </td>
+
+          <td *ngIf="u.role == 'validateur' " class="hidden-480" >
+            <span class="label label-sm label-warning">{{u.role}}</span>
+          </td>
+
+          <td  *ngIf="u.role == 'user' "  class="hidden-480" >
+            <span class="label label-sm label-pink">{{u.role}}</span>
+          </td>
+
+
+          <td >
+            <div class="hidden-sm hidden-xs action-buttons">
+              <a class="blue" href="#">
+                <i class="ace-icon fa fa-search-plus bigger-130" ></i>
+              </a>
+
+
+              <a   class="green"  (click)="edit1(u.matricule ,u.nom ,u.prenom ,this.nomservice[i], u.email)">
+                <i class="ace-icon fa fa-pencil bigger-130"></i>
+              </a>
+
+              <a class="red" (click)="removeuser(u.matricule)">
+                <i class="ace-icon fa fa-trash-o bigger-130"></i>
+              </a>
+
+
+            </div>
+
+
+          </td>
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!--------------------------------------------------------end table2------------------------------------------------------------------->
+<!-- ---------------------------------Modal ---------------------->
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"></button>
+        <h4 class="modal-title">Login</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn" data-dismiss="modal">Login</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-----------------------------------end modal-------------------------------------------->
+
+
