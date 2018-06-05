@@ -21,7 +21,9 @@ export class HomeComponent implements OnInit {
   nom  :any ;
   prenom  :any ;service : any ;
   deppartements : any ;
-  test:boolean;ajout :boolean =true;
+  test:boolean;
+  ajout :boolean =true;
+  
   constructor(public Rest: UserService ,  public dep  : DepartementService,public log :LoginService , public router : Router) {
     this.test=false ;
     this.getAllUsers();

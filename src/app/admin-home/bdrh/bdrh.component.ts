@@ -1,9 +1,9 @@
 
 import { Component, OnInit } from '@angular/core';
-import {UserService} from '../../services/user.service';
-import {DepartementService} from '../../services/departement.service';
+import { UserService } from '../../services/user.service';
+import { DepartementService } from '../../services/departement.service';
 
-import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -13,19 +13,19 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./bdrh.component.css']
 })
 export class BdrhComponent implements OnInit {
-  users: any ; serviceName:any;
+  users: any; serviceName: any;
   matricule: any;
-email : any ;
-nom  :any ;
-prenom  :any ;service : any ;
-departements : any ;
+  email: any;
+  nom: any;
+  prenom: any; service: any;
+  departements: any;
   closeResult: string;
-idservice : any ;
-  nomservice : any = [];
+  idservice: any;
+  nomservice: any = [];
 
-test:boolean;ajout :boolean =true;
-  constructor(public Rest: UserService ,  public dep  : DepartementService,private modalService: NgbModal ) {
-this.test=false ;
+  test: boolean; ajout: boolean = true;
+  constructor(public Rest: UserService, public dep: DepartementService, private modalService: NgbModal) {
+    this.test = false;
     this.getAllUsers();
     //this.departements= this.dep.getdepartement();
 
@@ -37,28 +37,28 @@ this.test=false ;
 
   getAllUsers() {
 
-     this.Rest.getusers().subscribe( val => {
-       this.users = val ;
+    this.Rest.getusers().subscribe(val => {
+      this.users = val;
 
-       this.dep.getdepartement().subscribe( dep => {
-         this.departements=dep ;
+      this.dep.getdepartement().subscribe(dep => {
+        this.departements = dep;
 
-         for(var i=0 ; i<this.users.length ; i++) {
+        for (var i = 0; i < this.users.length; i++) {
 
-           for (var j = 0; j < this.departements.length; j++) {
-if( this.users[i].service == this.departements[j].id ){
+          for (var j = 0; j < this.departements.length; j++) {
+            if (this.users[i].service == this.departements[j].id) {
 
-  this.nomservice.push(this.departements[j].serviceName)
+              this.nomservice.push(this.departements[j].serviceName)
 
 
-  console.log(this.nomservice)
+              console.log(this.nomservice)
 
-}
-           }
-         }
+            }
+          }
+        }
 
-         })
-     });
+      })
+    });
 
   }
 
@@ -68,7 +68,7 @@ if( this.users[i].service == this.departements[j].id ){
 
       this.getAllUsers();
 
-    },error2 => {
+    }, error2 => {
 
       //this.getAllUsers();
 
@@ -80,37 +80,34 @@ if( this.users[i].service == this.departements[j].id ){
   }
 
 
-  edit1(matricule ,nom , prenom , service, email )
-  {
-    this.test=true ;
+  edit1(matricule, nom, prenom, service, email) {
+    this.test = true;
 
-    this.matricule = matricule ;
-    this.nom = nom ;
+    this.matricule = matricule;
+    this.nom = nom;
     this.prenom = prenom;
-    this.service= service;
-    this.email= email ;
+    this.service = service;
+    this.email = email;
 
   }
-  update(matricule ,nom , prenom , service, email)
+  update(matricule, nom, prenom, service, email) {
+    this.dep.getdepartement().subscribe(val => {
+      this.departements = val;
 
-  {
-    this.dep.getdepartement().subscribe( val => {
-      this.departements=val ;
-
-      for(var i=0 ; i<this.departements.length ; i++){
-        if(this.departements[i].serviceName == service){
-           this.idservice= this.departements[i].id
+      for (var i = 0; i < this.departements.length; i++) {
+        if (this.departements[i].serviceName == service) {
+          this.idservice = this.departements[i].id
         }
-        }
+      }
 
-      this.Rest.update(matricule ,nom , prenom , this.idservice, email).subscribe( res => {
+      this.Rest.update(matricule, nom, prenom, this.idservice, email).subscribe(res => {
         this.getAllUsers()
-      },error2 => {
+      }, error2 => {
 
         this.getAllUsers();
 
       });
- this.getAllUsers()
+      this.getAllUsers()
 
     })
 
@@ -118,19 +115,18 @@ if( this.users[i].service == this.departements[j].id ){
 
 
 
-//this.users = this.Rest.getusers();
+    //this.users = this.Rest.getusers();
 
 
-    this.test=false ;
+    this.test = false;
   }
 
-  add (nom,prenom,service , email )
-  {
-    this.Rest.add(nom,prenom,email,service).subscribe()
+  add(nom, prenom, service, email) {
+    this.Rest.add(nom, prenom, email, service).subscribe()
     this.users = this.Rest.getusers();
   }
-  ajoutt (){
-    this.ajout = true ;
+  ajoutt() {
+    this.ajout = true;
   }
 
 

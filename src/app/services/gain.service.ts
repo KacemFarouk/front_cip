@@ -15,7 +15,7 @@ import {HttpClient} from '@angular/common/http';
 export class GainService {
 
 
-  baseURL: any="http://localhost/server";
+  baseURL: any="http://localhost/cip";
 
   constructor(public http: HttpClient) {
 

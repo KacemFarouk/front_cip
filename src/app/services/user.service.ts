@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http';
 export class UserService {
 
 
-  baseURL: any="http://localhost/server";
+  baseURL: any="http://localhost/cip";
 
   constructor(public http: HttpClient) {
 
