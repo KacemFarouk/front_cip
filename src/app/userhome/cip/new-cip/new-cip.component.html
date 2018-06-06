@@ -797,6 +797,17 @@
       </div>
       <div class="panel-body">
         <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label class="col-md-2 control-label" >Auto Complete</label>
+            <div class="col-md-10">
+              <input class="form-control" placeholder="Type somethine..." type="text" list="list">
+              <datalist id="list" [(ngModel)]="nature" name="nature" (change)="getidnature(nature)">
+                <option *ngFor="let g of gains" [ngValue]="g" >{{g.natureGain}}</option>
+              </datalist>
+              <p class="note"><strong>Note:</strong> works in Chrome, Firefox, Opera and IE10.</p>
+            </div>
+
+          </div>
 
           <div class="form-group">
             <label class="col-sm-2 control-label">Matricule:</label>
