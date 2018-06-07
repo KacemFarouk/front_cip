@@ -70,7 +70,7 @@ export class CipService {
   }
 
   addcipuser(numero, iduser) {
-    return this.http.get("http://localhost/cip/addUserInCip.php?numcip=" + numero + "&iduser=" + iduser)
+    return this.http.get("http://localhost/cip/addUserInCIP.php?numcip=" + numero + "&iduser=" + iduser)
   }
 
 

@@ -47,7 +47,7 @@ import { ValidationComponent } from './admin-home/cip1/validation/validation.com
 
 
 const router: Routes = [
-  { path: '', component: HomeAdComponent },
+  { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: '#', component: ErreurComponent },
 
