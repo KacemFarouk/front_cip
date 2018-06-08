@@ -1,18 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './home/header/header.component';
-<<<<<<< HEAD
+
 import { LayoutComponent } from './home/layout/layout.component';
 import { FooterComponent } from './home/footer/footer.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AproposComponent } from './home/apropos/apropos.component';
-=======
-import {RouterModule, Routes} from '@angular/router';
->>>>>>> refs/remotes/origin/master
+
 import { UserhomeComponent } from './userhome/userhome.component';
 import { NewCipComponent } from './userhome/cip/new-cip/new-cip.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
@@ -23,7 +20,6 @@ import { ValidHomeComponent } from './valid-home/valid-home.component';
 import { ListeComponent } from './valid-home/liste/liste.component';
 import { ValidhistoryComponent } from './valid-home/validhistory/validhistory.component';
 
-<<<<<<< HEAD
 import { HistoriqueCipComponent } from './userhome/cip/historique-cip/historique-cip.component';
 import { EvaluationComponent } from './userhome/evaluation/evaluation.component';
 import { CipComponent } from './userhome/cip/cip.component';
@@ -40,22 +36,8 @@ import { SidebarComponent } from './home/sidebar/sidebar.component';
 import { ModalModule } from 'ng-bootstrap-modal';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModalStack } from '@ng-bootstrap/ng-bootstrap/modal/modal-stack';
-import { ErreurComponent } from './home/erreur/erreur.component';
-=======
-import {HistoriqueCipComponent} from './userhome/cip/historique-cip/historique-cip.component';
-import {CipComponent} from './userhome/cip/cip.component';
-import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
-import {CipService} from './services/cip.service';
-import {GainService} from './services/gain.service';
-import {UserService} from './services/user.service';
-import {DepartementService} from './services/departement.service';
-import { HomeAdComponent } from './AdminTemp/home-ad/home-ad.component';
-import { SidebarComponent } from './home/sidebar/sidebar.component';
-import {ModalModule} from 'ng-bootstrap-modal';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {NgbModalStack} from '@ng-bootstrap/ng-bootstrap/modal/modal-stack';
->>>>>>> refs/remotes/origin/master
+
+
 import { ProfilComponent } from './home/profil/profil.component';
 import { MessagesComponent } from './home/messages/messages.component';
 import { GiftsComponent } from './userhome/cip/gifts/gifts.component';
@@ -63,53 +45,19 @@ import { LoginService } from './services/login.service';
 import { ProgresComponent } from './userhome/cip/historique-cip/progres/progres.component';
 import { ValidationComponent } from './admin-home/cip1/validation/validation.component';
 
-
-
-
-<<<<<<< HEAD
 const router: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
-  { path: '#', component: ErreurComponent },
-
-  { path: 'userhome/evaluation', component: EvaluationComponent },
-  { path: 'userhome/enquete', component: EnqueteComponent },
   { path: 'userhome', component: UserhomeComponent },
   { path: 'userhome/cip', component: CipComponent },
   { path: 'userhome/cip/new', component: NewCipComponent },
   { path: 'userhome/cip/historique-cip', component: HistoriqueCipComponent },
   { path: 'userhome/cip/historique-cip/progres/:numero/:controlling', component: ProgresComponent },
-
-  { path: 'apropos', component: AproposComponent },
   { path: 'adminhome', component: AdminHomeComponent },
   { path: 'adminhome/cip1', component: Cip1Component },
   { path: 'adminhome/cip1/validation/:numero', component: ValidationComponent },
-  { path: 'adminhome/bdrh', component: BdrhComponent },
-=======
-const router: Routes =[
-  { path:'',component:HomeComponent},
-  {path:'home',component:HomeComponent},
+  { path: 'adminhome/bdrh', component: BdrhComponent }];
 
-  {path:'userhome',component:UserhomeComponent},
-  {path:'userhome/cip',component:CipComponent},
-  {path:'userhome/cip/new',component:NewCipComponent},
-  {path:'userhome/cip/historique-cip',component:HistoriqueCipComponent},
-  {path:'userhome/cip/historique-cip/progres/:numero/:controlling',component:ProgresComponent},
-
-  {path:'adminhome',component:AdminHomeComponent},
-  {path:'adminhome/cip1',component:Cip1Component},
-  {path:'adminhome/cip1/validation/:numero',component:ValidationComponent},
-  {path:'adminhome/bdrh',component:BdrhComponent},
->>>>>>> refs/remotes/origin/master
-
-  { path: 'validhome', component: ValidHomeComponent },
-  { path: 'validhome/liste', component: ListeComponent },
-  { path: 'validhome/validhistory', component: ValidhistoryComponent },
-  { path: 'profil', component: ProfilComponent },
-  { path: 'messages', component: MessagesComponent },
-  { path: 'userhome/cip/cadeaux', component: GiftsComponent },
-
-]
 
 @NgModule({
   declarations: [
