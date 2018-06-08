@@ -94,7 +94,7 @@ login(email,password)
 this.router.navigate(["/adminhome"])
 
   }
-      if(JSON.parse(JSON.stringify(value)).statut == "controlling" || JSON.parse(JSON.stringify(value)).statut == "SMRT" || JSON.parse(JSON.stringify(value)).statut == "head of controlling" || JSON.parse(JSON.stringify(value)).statut == "directeur financiere" )  {
+      if(JSON.parse(JSON.stringify(value)).statut == "c" || JSON.parse(JSON.stringify(value)).statut == "SMRT" || JSON.parse(JSON.stringify(value)).statut == "headC" || JSON.parse(JSON.stringify(value)).statut == "DF" )  {
          localStorage.setItem('matricule' , JSON.parse(JSON.stringify(value)).matricule )
          localStorage.setItem('service' , JSON.parse(JSON.stringify(value)).service )
         localStorage.setItem('statut' , JSON.parse(JSON.stringify(value)).statut )
